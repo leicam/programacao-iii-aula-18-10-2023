@@ -1,6 +1,7 @@
 package br.edu.umfg.exerciciosAPI.controllers;
 
 import br.edu.umfg.entitties.Client;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,11 +9,11 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/client")
+@RequestMapping("/clients")
 public class ClientController {
     private ArrayList<Client> list = new ArrayList<Client>();
 
-    @PostMapping
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Client> postClient (
             @RequestBody Client client){
         this.list.add(client);

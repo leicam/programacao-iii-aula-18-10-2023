@@ -1,6 +1,7 @@
 package br.edu.umfg.entitties;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.UUID;
 
@@ -27,7 +28,9 @@ public class Client {
     }
 
     @JsonCreator
-    public Client(String name, String lastName, String document) {
+    public Client(@JsonProperty("name") String name,
+                  @JsonProperty("lastName") String lastName,
+                  @JsonProperty("document") String document) {
         this.id = UUID.randomUUID();
         this.name = name;
         this.lastName = lastName;
